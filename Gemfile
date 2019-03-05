@@ -20,7 +20,8 @@ gem 'devise_token_auth'
 
 # Use ActiveStorage variant
 gem 'mini_magick', '~> 4.8'
-
+# This gem provides a simple and extremely flexible way to upload files from Ruby applications.
+gem 'carrierwave', '~> 1.0'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

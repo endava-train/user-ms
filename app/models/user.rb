@@ -6,19 +6,18 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
-  # has_one_attached :image
-  # before_create :transform_image
+  mount_uploader :avatar, AvatarUploader
+  serialize :avatar, JSON # If you use SQLite, add this line.
 
-  # after_save :transform_image
+  # has_one_attached :image
   #
   # def  transform_image
   #   if self.image?
   #     self.image.variant(resize: "100x100")
   # end
   #
-  #
-  #
   # def transform_image
   #   self.image.variant(resize: "100x100").processed.service_url
+  # User.find(32).avatar.variant(resize_to_fit: [100, 100])
   # end
 end
